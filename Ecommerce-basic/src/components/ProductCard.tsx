@@ -1,25 +1,17 @@
 import { useContext } from "react";
 import { FaPlus } from "react-icons/fa";
 import { FaMinus } from "react-icons/fa";
-
-interface Product {
-  id: number;
-  title: string;
-  price: number;
-  description: string;
-  category: string;
-  thumbnail: string;
-  rating: number;
-}
+import ThemeContext from "../contexts/ThemeContext";
+import type { Product } from "../types/product";
 
 interface ProductCardProps {
   itemDetails: Product;
 }
 
 const ProductCard = ({ itemDetails }: ProductCardProps) => {
-
+  const { theme } = useContext(ThemeContext);
   return (
-    <div className={`product-card`}>
+    <div className={`product-card ${theme}`}>
       <img src={itemDetails.thumbnail} alt={itemDetails.title} />
 
       <h4>{itemDetails.title}</h4>

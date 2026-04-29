@@ -1,20 +1,31 @@
 import { useState } from "react";
 import NavBar from "./components/NavBar";
 import ProductsList from "./components/ProductsList";
+import ThemeContext from "./contexts/ThemeContext";
+import CartContext from "./contexts/CartContext";
 
 function App() {
-  const [theme, setTheme] = useState("dark");
+  const [theme, setTheme] = useState<string>("light");
 
-  const toggleTheme = () => {
+  const themeToggle = () => {
     setTheme((prev) => (prev === "light" ? "dark" : "light"));
   };
+
+  // Cart
+
+  const [cartItems, setCartItems] = useState([]);
+
+  const addToCart = () => {};
+
   return (
-    <>
+    <ThemeContext.Provider value={{ theme, themeToggle }}>
       <main>
-        <NavBar />
+        <CartContext.Provider value={{ cartItems, addToCart }}>
+          <NavBar />
           <ProductsList />
+        </CartContext.Provider>
       </main>
-    </>
+    </ThemeContext.Provider>
   );
 }
 
