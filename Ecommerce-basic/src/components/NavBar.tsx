@@ -25,7 +25,9 @@ const NavBar: React.FC = () => {
             <span>
               <FaShoppingCart />
             </span>
-            <span>{cartList?.length}</span>
+            <span>
+              {cartList.reduce((total, each) => total + each.quantity, 0)}
+            </span>
           </button>
         </div>
         <div className={`themeSwitcher ${theme}`}>
