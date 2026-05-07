@@ -1,0 +1,88 @@
+.cart-container {
+  background-color: rgb(238, 227, 222);
+  padding: 10px 0px;
+  position: fixed;
+  right: 0;
+  z-index: 999;
+  width: 30%;
+  transition: all 1s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-left: 2px solid green;
+  height: 93vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.cart-container h3 {
+  text-align: center;
+  margin-top: 30px;
+}
+.cartItem-wrapper {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #fff;
+  padding: 10px;
+  border-bottom: 1px dotted gray;
+}
+.close-cart-btn {
+  border: none;
+  background: transparent;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  cursor: pointer;
+  align-self: flex-end;
+  margin-right: 10px;
+}
+.delete-btn {
+  color: red;
+  font-size: 30px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.qty-btn-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.qty-btn-wrapper span {
+  font-weight: bold;
+  font-size: 18px;
+}
+.add-qty-btn,
+.remove-qty-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  border-radius: 5px;
+}
+.add-qty-btn {
+  border: 1px solid green;
+  color: green;
+}
+.remove-qty-btn {
+  border: 1px solid red;
+  color: red;
+}
+.empty-cart-btn {
+  cursor: pointer;
+  background: rebeccapurple;
+  color: #fff;
+  border: none;
+  padding: 5px 0;
+}

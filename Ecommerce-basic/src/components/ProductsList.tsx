@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
 import "../styles/productsList.css";
 import type { Product } from "../types/product";
+import CartContext from "../contexts/CartContext";
 
 interface ProductsApiResponse {
   products: Product[];
@@ -11,6 +12,7 @@ interface ProductsApiResponse {
 }
 
 const ProductsList: React.FC = () => {
+  const { addToCart } = useContext(CartContext);
   const [productsList, setProductsList] = useState<Product[]>([]);
 
   useEffect(() => {
@@ -30,7 +32,12 @@ const ProductsList: React.FC = () => {
   return (
     <div className="Products-container">
       {productsList.map((item) => (
-        <ProductCard key={item.id} itemDetails={item} />
+        <div className="card-wrapper">
+          <ProductCard key={item.id} itemDetails={item} />
+          <button className="add-btn" onClick={() => addToCart(item)}>
+            Add To Cart
+          </button>
+        </div>
       ))}
     </div>
   );
